@@ -32,9 +32,7 @@ Il faut aller dans le panneau de configuration dans l'onglet réseau et internet
 il faut ensuite aller dans l'onglet centre réseau et partage puis modifier les parametre de la carte là une nouvelle fenetre s'ouvre avec la liste des cartes réseaux du pc
 
 pour accéder aux infos d'une carte réseaux il faut faire un clic droit dessus et choisir Statut  et dans cet nouvelle fenetre on à un onglet détails qui nous montrera la config réseau de la carte 
-
-![Alt text](C:\Users\steve\Desktop\Tp-1?raw=true "Title")
-
+![img](https://github.com/StevenDias33/LaboR-seau/blob/master/TP%201/Tp-1.png)
 
 l'adresse ip MAC et la gateway sont la meme que dans l'exercie en CLI ce qui est logique 
 

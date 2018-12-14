@@ -38,12 +38,12 @@ l'adresse ip MAC et la gateway sont la meme que dans l'exercie en CLI ce qui est
 
 La gateway du réseaux ingésup sert à connecter le réseaux LAN ingésup aux réseau WAN et donc de pouvoir accéder à internet il permet aussi de sécuriser son accés et d'interdire certaines requete comme les requetes ICMP pour eviter les DOS et Ddos 
 
-    premiere adresse IP du réseau 10.33.0.1
+    Premiere adresse IP du réseau 10.33.0.1
     Derniere adresse IP du réseau 10.33.3.254
 
 j'ai changé mon adresse ip en 10.33.3.14
 
-pour scanner les adresses ip disponnible j'ai utilisé l'outils advanced ip scanner mais on peut aussi utiliser nmap en ligne de commande 
+Pour scanner les adresses ip disponnible j'ai utilisé l'outils advanced ip scanner mais on peut aussi utiliser nmap en ligne de commande 
 
 donc avec le logiciel j'ai toutes les adresses ip utilisé sur le réseau et j'en conclue donc que je peux utiliser l'adresse 10.33.3.14
 
@@ -51,12 +51,14 @@ le logiciel utilise le protocole TCP et fait des requetes TCP pour scanner l'ens
 
 Du coup j'ai modifié mon adresse ip et j'accede bien à internet 
 
-Envoi d’une requête 'Ping'  192.168.0.2 avec 32 octets de données :
-Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
-Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
-Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
-Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
+    Envoi d’une requête 'Ping'  192.168.0.2 avec 32 octets de données :
+    Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
+    Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
+    Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
+    Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
 
-Statistiques Ping pour 192.168.0.2:
-    Paquets : envoyés = 4, reçus = 4, perdus = 0 (perte 0%),
-Durée approximative des boucles en millisecondes :
+    Statistiques Ping pour 192.168.0.2:
+        Paquets : envoyés = 4, reçus = 4, perdus = 0 (perte 0%),
+    Durée approximative des boucles en millisecondes :
+
+

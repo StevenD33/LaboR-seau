@@ -51,6 +51,18 @@ le logiciel utilise le protocole TCP et fait des requetes TCP pour scanner l'ens
 
 Du coup j'ai modifié mon adresse ip et j'accede bien à internet 
 
+
+ensuite il faut faire un nmap du réseau pour vérifier que l'adresse ip que l'on veut prendre n'est pas utilisé 
+malheuresement le firewall du réseau bloque les requetes ping il faudra donc faire des requetes tcp pour faire scanner le réseau pour ce faire j'ai utilisé un logiciel appellé advanced ip scanner 
+
+ensuite j'ai modifié mon adresse ip en 10.33.3.20 car elle était disponnible aprés étude du scan 
+
+le DHCP est un protocole de configuration dynamiques des hotes 
+
+Pour la seconde parti du TP je me suis connecté en filaire au pc de mon voisin et j'ai changer mon adresse ip en 192.168.0.1 et lui en 192.168.0.2 
+
+aprés ajout de régle dans le firewall j'arrive à communiquer avec lui et à le ping 
+
     Envoi d’une requête 'Ping'  192.168.0.2 avec 32 octets de données :
     Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
     Réponse de 192.168.0.2 : octets=32 temps<1ms TTL=128
@@ -62,3 +74,8 @@ Du coup j'ai modifié mon adresse ip et j'accede bien à internet
     Durée approximative des boucles en millisecondes :
 
 
+Pour l'exercice suivant mon voisin à servi de passerelle par défaut pour me donner internet pour cela il a juste fallu modifier des parametres de partages et j'ai eu accés à internet
+
+ensuite on a utiliser netcat pour communiquer ensemble depuis le CMD pareil aucun soucis il a juste fallu re config les ip et c'était bon 
+
+j'ai ensuite effectuer une capture de la tram lors de la comunication net cat le .pcap et trouvable sur mon git dans le dossier TP1

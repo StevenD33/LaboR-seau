@@ -46,7 +46,7 @@ Pour la carte en Host-only, c'est différent.
 
 Il me faut créer son fichier de configuration dans à l'adresse : `/etc/sysconfig/network-scripts/`.
 
-La dedans, j'ouvre **VIM** en faisant la commande `vi ifcfg-ens37`, puis inscrire la config de la carte réseau :
+La dedans, j'ouvre **Nano** en faisant la commande `vi ifcfg-ens37`, puis inscrire la config de la carte réseau :
 
     TYPE=ETHERNET
     BOOTPROTO=static
@@ -57,7 +57,7 @@ La dedans, j'ouvre **VIM** en faisant la commande `vi ifcfg-ens37`, puis inscrir
     NETMASK=255.255.255.0
     [it4@localhost network-scripts]$
 
-Petit `ifdown ens37` et `ifup ens37` pour redemarrer la carte réseau *(Pour etre sur que la config sois correctement mise)*.
+on relance le service et l'interface pour que ça fonctionne et ensuite on check que ça à bien tout mis 
 
 Avec `ip a` je peut voir la config de toutes les carte réseau.
 
@@ -303,7 +303,8 @@ Sur : https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 J'ai téléchargé **putty.exe (the SSH and Telnet client itself)**.
 Une fois ouvert, j'inscris l'ip de la *VM* (soit : `192.168.126.10`) puis je me *log*.
 
-**C'est bon !!!!** Je suis connecté !
+*Alors pour activer le SSH il faut lancer le service avec 
+   systemctl start sshd 
 
 ### Firewall
 ---
@@ -326,6 +327,7 @@ Marche pô..
 Ok.. **Qu'est ce que pourquoi ça ne pas marcher ?**
 
 J'ai changé le port ? Mais je ne l'ai pas *autorisé* dans le **firewall**.
+et oui ce petit guignolo de firewall par défaut interdit toute connexion entrante ou sortante c'est la maniere la plus sécurisé de faire dans le monde du réseau il vaut mieux avoir un firewall qui bloque tout et que l'on ouvre des ports que l'inverse cependant on voit encore beaucoup trop de firewall avec des ports non-utilisé ouvert.
 
 Pour changer le port : `firewall-cmd --add-port=2222/tcp --permanent` puis `firewall-cmd --reload`pour redemarrer le service.
 
@@ -377,7 +379,7 @@ Faire en sorte que :
     * Les deux PCs puissent se ping à travers le câble.
     * Les cartes Ethernets doivent être dans le réseau 12 : 192.168.112.0/30.
 
-### Préparation VirtualBox
+### Préparation VMWARE
 ---
 
 Modifier les réseaux host-only pour qu'ils soient :

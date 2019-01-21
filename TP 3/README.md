@@ -466,5 +466,8 @@ Les ping fonctionnent !
 
 ## Configuration des noms de domaine
 
+L'objectif de cette exercice était d'attribuer un nom de domaine à une adresse IP pour faciliter les communication et simplifier les commandes par exemple au lieu de ping sur le 192.168.102.2 je peux ping un nom de domaine par exemple 'Tp3' ce qui facilite la compréhension du réseau
 
-Done 
+
+
+

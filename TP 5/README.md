@@ -109,7 +109,9 @@ pour la sécurisation du SSH c'est tout simple
 on crée un dossier .ssh 
 
 on y genere une clé ssh 
-    ssh-keygen  -t  dsa -b 2048 -f  ~/.ssh/id_server 
+
+        ssh-keygen  -t  dsa -b 2048 -f  ~/.ssh/id_server 
+
 
 on a 2 clé une pour le serveur et une pour les machines client 
 

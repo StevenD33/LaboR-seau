@@ -232,3 +232,6 @@ on y genere une clé ssh
 on a 2 clé une pour le serveur et une pour les machines client 
 
 on copie la clé client avec la commande scp sur une machine client et ensuite on vérifier que le fichier AuthorizedKeysFile à bien été crée avec la clé que l'on vient de générer 
+
+
+Je rajouterais un petit merci pour les cours de réseau sympathique et dans la bonne hummeur.

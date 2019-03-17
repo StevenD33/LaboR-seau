@@ -26,7 +26,7 @@ Au menu :
   * utilisation de switch Cisco + mise en place de VLAN
 
 
-  
+
 ### Adressage IP de chacune des machines
 
 Machines | `10.6.100.0/30` | `10.6.100.4/30` | `10.6.100.8/30` | `10.6.100.12/30` | `10.6.101.0/30` | `10.6.201.0/24` | `10.6.202.0/24`
@@ -66,12 +66,15 @@ client 2 vers client 1
     64 bytes from client1 (10.6.201.42): icmp_seq=3 ttl=64 time=0.458 ms
 
 
+Qui porte quel service ? Pour qui est ce service ? Pourquoie ?
+
+Service | Qui porte le service ? | Pour qui ? | Pourquoi ? 
 --- | --- | --- | ---
-**NAT** | `r4` | tout le monde (routeurs & VMs) | Le NAT permet d'accéder à l'extérieur, il permet de sortir du LAN. Toutes les machines peuvent en avoir besoin dans notre petite infra
-**Serveur Web** | `server1` | réseau client `10.6.201.0/24` | Le serveur Web symbolise un service d'infra en interne. Dispo pour nos clients. Plus de détails dans la section dédiée.
-**DHCP** | `client2` | réseau client `10.6.201.0/24` | Le DHCP (qui permet d'attribuer des IPs automatiquement) c'est pour des clients. Pas pour des serveurs. Un serveur, on veut qu'il ait une IP fixe. 
-**DNS** | `server1` | tout le monde (routeurs & VMs) | Le DNS nous permettra de résoudre les noms de domaines en local et nous passer du fichier `/etc/hosts`
-**NTP** | `server1` | réseau serveur `10.6.202.0/24` | Le NTP, qui permet la synchronisation de l'heure, est souvent indispensable pourdes serveurs mais totalement négligeable pour des clients (genre vos PCs, s'ils sont pas à l'heure, tout le monde s'en fout)
+**NAT** | `r4.tp6.b1` | tout le monde (routeurs & VMs) | Le NAT permet d'accéder à l'extérieur, il permet de sortir du LAN. Toutes les machines peuvent en avoir besoin dans notre petite infra
+**Serveur Web** | `server1.tp6.b1` | réseau client `10.6.201.0/24` | Le serveur Web symbolise un service d'infra en interne. Dispo pour nos clients. Plus de détails dans la section dédiée.
+**DHCP** | `client2.tp6.b1` | réseau client `10.6.201.0/24` | Le DHCP (qui permet d'attribuer des IPs automatiquement) c'est pour des clients. Pas pour des serveurs. Un serveur, on veut qu'il ait une IP fixe. 
+**DNS** | `server1.tp6.b1` | tout le monde (routeurs & VMs) | Le DNS nous permettra de résoudre les noms de domaines en local et nous passer du fichier `/etc/hosts`
+**NTP** | `server1.tp6.b1` | réseau serveur `10.6.202.0/24` | Le NTP, qui permet la synchronisation de l'heure, est souvent indispensable pourdes serveurs mais totalement négligeable pour des clients (genre vos PCs, s'ils sont pas à l'heure, tout le monde s'en fout)
 
 ## 1. NAT : accès internet
 
@@ -114,15 +117,15 @@ et on vérifie la connexion sur les Vm mais attention on ne peut pas faire de cu
 
 je fais un curl avec le client 1 de mon serveur web pour savoir si il est up et si il est accessible 
 
-[root@client1 ~]$ curl server1
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+    [root@client1 ~]$ curl server1
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-    <head>
-        <title>Test Page for the Nginx HTTP Server on Fedora</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <style type="text/css">
-        
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+        <head>
+            <title>Test Page for the Nginx HTTP Server on Fedora</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <style type="text/css">
+            
 
 ## 3. Serveur DHCP
 
@@ -176,25 +179,25 @@ je vérifie si je peux curl google sans l'aide d'un autre dns que le miens
 
 je vérifie que ça marche sur mon client 1 
 
-[root@client1 ~]$ chronyc sources
-210 Number of sources = 1
-MS Name/IP address         Stratum Poll Reach LastRx Last sample
-===============================================================================
-^* server1                       3   7   377    94    -11ms[  -15ms] +/-   70ms
-[root@client1 ~]$ chronyc tracking
-Reference ID    : 0A06CA0A (server1)
-Stratum         : 4
-Ref time (UTC)  : Tue Mar 12 23:38:03 2019
-System time     : 0.000877020 seconds fast of NTP time
-Last offset     : +0.000998453 seconds
-RMS offset      : 0.227384850 seconds
-Frequency       : 7.671 ppm fast
-Residual freq   : +0.112 ppm
-Skew            : 19.082 ppm
-Root delay      : 0.104015709 seconds
-Root dispersion : 0.008994878 seconds
-Update interval : 114.2 seconds
-Leap status     : Normal
+    [root@client1 ~]$ chronyc sources
+    210 Number of sources = 1
+    MS Name/IP address         Stratum Poll Reach LastRx Last sample
+    ===============================================================================
+    ^* server1                       3   7   377    94    -11ms[  -15ms] +/-   70ms
+    [root@client1 ~]$ chronyc tracking
+    Reference ID    : 0A06CA0A (server1)
+    Stratum         : 4
+    Ref time (UTC)  : Tue Mar 12 23:38:03 2019
+    System time     : 0.000877020 seconds fast of NTP time
+    Last offset     : +0.000998453 seconds
+    RMS offset      : 0.227384850 seconds
+    Frequency       : 7.671 ppm fast
+    Residual freq   : +0.112 ppm
+    Skew            : 19.082 ppm
+    Root delay      : 0.104015709 seconds
+    Root dispersion : 0.008994878 seconds
+    Update interval : 114.2 seconds
+    Leap status     : Normal
 
 # Bilan
 

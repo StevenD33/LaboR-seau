@@ -8,5 +8,5 @@ le TP 4 se situe [ici](https://github.com/StevenDias33/LaboR-seau/tree/master/TP
 
 le TP 5 se situe [ici](https://github.com/StevenDias33/LaboR-seau/tree/master/TP%205)
 
-le TP 5 se situe [ici](https://github.com/StevenDias33/LaboR-seau/tree/master/TP%206)
+le TP 6 se situe [ici](https://github.com/StevenDias33/LaboR-seau/tree/master/TP%206)
 
